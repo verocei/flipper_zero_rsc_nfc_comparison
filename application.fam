@@ -1,0 +1,15 @@
+App(
+    appid="rsc_nfc_comparison",
+    name="RSC NFC Comparison",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="rsc_nfc_comparison_app",
+    # Scanner and poller run on the NFC worker thread; the comparison runs on
+    # the app thread and only works on heap-allocated NfcDevice copies.
+    stack_size=4 * 1024,
+    requires=["gui", "storage", "notification"],
+    fap_category="NFC",
+    fap_author="Athos / RSC",
+    fap_version="0.2",
+    fap_description="Reads an NFC card twice and checks that the second read matches the first 100%",
+    fap_icon="icon_10px.png",  # 10x10 1-bit RSC "R" brand icon, copied from RSC-Remote-Analyzer
+)
